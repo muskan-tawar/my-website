@@ -1,0 +1,257 @@
+
+[
+  {
+    "id": "product1",
+    "name": "Minola Golden Earrings",
+    "category": "Earrings",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/product-010-300x300.jpg",
+    "order": 1
+  },
+  {
+    "id": "product2",
+    "name": "Minola Golden Necklace",
+    "category": "Necklaces",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/product-005-300x300.jpg",
+    "order": 2
+  },
+  {
+    "id": "product3",
+    "name": "Minola Golden Ring",
+    "category": "Rings",
+    "price": 240,
+    "oldPrice": 325,
+    "discount": 26,
+    "image": "imgs/product-03.jpg",
+    "order": 3
+  },
+  {
+    "id": "product4",
+    "name": "Minola Golden Ring 2",
+    "category": "Rings",
+    "price": 265,
+    "oldPrice": 375,
+    "discount": 29,
+    "image": "imgs/product-02.jpg",
+    "order": 4
+  },
+  {
+    "id": "product5",
+    "name": "Minola Golden Ring 3",
+    "category": "Rings",
+    "price": 390,
+    "oldPrice": 450,
+    "discount": 13,
+    "image": "imgs/product-03.jpg",
+    "order": 5
+  },
+  {
+    "id": "product6",
+    "name": "Minola Golden Ring 4",
+    "category": "Rings",
+    "price": 375,
+    "oldPrice": 525,
+    "discount": 29,
+    "image": "imgs/product-04.jpg",
+    "order": 6
+  },
+  {
+    "id": "product7",
+    "name": "Minola Silver Earrings",
+    "category": "Earrings",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/product-009-300x300.jpg",
+    "order": 7
+  },
+  {
+    "id": "product8",
+    "name": "Sone Golden Earrings",
+    "category": "Earrings",
+    "price": 370,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/product-06.jpg",
+    "order": 8
+  },
+  {
+    "id": "product9",
+    "name": "Sone Golden Earrings 2",
+    "category": "Earrings",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/product-14-300x300.jpg",
+    "order": 9
+  },
+  {
+    "id": "product10",
+    "name": "Venus Diamond Earrings",
+    "category": "Earrings",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/product-011.jpg",
+    "order": 10
+  },
+  {
+    "id": "product11",
+    "name": "Venus Golden Necklace",
+    "category": "Necklaces",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/product-07.jpg",
+    "order": 11
+  },
+  {
+    "id": "product12",
+    "name": "Venus Silver Necklace",
+    "category": "Necklaces",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/product-008.jpg",
+    "order": 12
+  },
+  {
+    "id": "product13",
+    "name": "Verra Diamond Ring",
+    "category": "Rings",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/product-13-300x300.jpg",
+    "order": 13
+  }
+  
+,
+  {
+    "id": "product14",
+    "name": "Minola Golden Earrings",
+    "category": "Earrings",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/erring1.jpg",
+    "order": 1
+  },
+  {
+    "id": "product15",
+    "name": "Minola Golden Necklace",
+    "category": "Necklaces",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/neckless2.jpg",
+    "order": 2
+  },
+  {
+    "id": "product16",
+    "name": "Minola Golden Ring",
+    "category": "Rings",
+    "price": 240,
+    "oldPrice": 325,
+    "discount": 26,
+    "image": "imgs/ring1.jpg",
+    "order": 3
+  },
+  {
+    "id": "product17",
+    "name": "Minola Golden Ring 2",
+    "category": "Rings",
+    "price": 265,
+    "oldPrice": 375,
+    "discount": 29,
+    "image": "imgs/ring2.jpg",
+    "order": 4
+  },
+  {
+    "id": "product18",
+    "name": "Minola Golden Ring 3",
+    "category": "Rings",
+    "price": 390,
+    "oldPrice": 450,
+    "discount": 13,
+    "image": "imgs/ring3.jpg",
+    "order": 5
+  },
+  {
+    "id": "product19",
+    "name": "Minola Silver Ring",
+    "category": "Rings",
+    "price": 375,
+    "oldPrice": 525,
+    "discount": 29,
+    "image": "imgs/ring4.jpg",
+    "order": 6
+  },
+  {
+    "id": "produc20",
+    "name": "Minola Silver Earrings",
+    "category": "Earrings",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/earring2.jpg",
+    "order": 7
+  },
+  {
+    "id": "product21",
+    "name": "Sone Golden Earrings",
+    "category": "Earrings",
+    "price": 370,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/earring3.jpg",
+    "order": 8
+  },
+  {
+    "id": "product22",
+    "name": "Sone Golden Earrings 2",
+    "category": "Earrings",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/earring4.jpg",
+    "order": 9
+  },
+  {
+    "id": "product23",
+    "name": "Sone Golden  Earrings",
+    "category": "Necklaces",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/neckless3.jpg",
+    "order": 10
+  },
+  {
+    "id": "product11",
+    "name": "Venus Golden Necklace",
+    "category": "Necklaces",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/neckless4.jpg",
+    "order": 11
+  },
+  {
+    "id": "product12",
+    "name": "Venus Silver Necklace",
+    "category": "Necklaces",
+    "price": 325,
+    "oldPrice": null,
+    "discount": null,
+    "image": "imgs/product-008.jpg",
+    "order": 12
+  }
+ 
+
+]

@@ -1,0 +1,1485 @@
+/* =====================================================
+   JEWELLERY STORE - CART VIEW PAGE
+===================================================== */
+
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+    --gold: #d9955a;
+    --dark: #222;
+    --border: #dddddd;
+    --soft-bg: #faf7f5;
+    --page-bg: #f7f7f7;
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Montserrat", Arial, sans-serif;
+
+    background-color: var(--page-bg);
+
+    color: #222;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   CENTER DECORATIVE LINE
+===================================================== */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    background-image: url("imgs/master-bg-divider.png");
+
+    background-repeat: repeat-y;
+
+    background-position: center top;
+
+    background-size: 100% auto;
+
+    pointer-events: none;
+
+    z-index: 9998;
+
+    transform: translateX(-50%);
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.jewellery-navbar {
+    min-height: 45px;
+
+    height: 45px;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #eeeeee;
+
+    position: relative;
+
+    z-index: 999912345 !important;
+}
+
+
+/* =====================================================
+   NAVBAR CONTAINER
+===================================================== */
+
+.jewellery-navbar .container-fluid {
+    height: 45px;
+
+    position: relative;
+}
+
+
+/* =====================================================
+   MOBILE LOGO
+===================================================== */
+
+.mobile-logo {
+    display: none;
+
+    color: #222;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   NAVBAR MENU
+===================================================== */
+
+.jewellery-navbar .navbar-nav {
+    gap: 5px;
+}
+
+.jewellery-navbar .nav-link {
+    color: #777;
+
+    font-size: 7px;
+
+    letter-spacing: .5px;
+
+    padding: 4px 6px;
+
+    transition: .25s ease;
+}
+
+.jewellery-navbar .nav-link:hover,
+.jewellery-navbar .nav-link.active {
+    color: var(--gold);
+}
+
+
+/* =====================================================
+   CENTER LOGO
+===================================================== */
+
+.center-logo {
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 5;
+}
+
+.center-logo img {
+    width: 65px;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* =====================================================
+   RIGHT NAVBAR
+===================================================== */
+
+.navbar-right {
+    color: var(--gold);
+
+    gap: 8px !important;
+
+    font-size: 7px;
+}
+
+
+/* =====================================================
+   LOGIN ICON
+===================================================== */
+
+.login-icon {
+    color: #999;
+
+    font-size: 10px;
+
+    transition: .25s ease;
+}
+
+.login-icon:hover {
+    color: var(--gold);
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   CART PRICE
+===================================================== */
+
+.cart-price {
+    color: var(--gold);
+
+    font-size: 7px;
+
+    min-width: auto;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   CART ICON
+===================================================== */
+
+.cart-icon {
+    position: relative;
+
+    color: var(--gold);
+}
+
+.cart-icon button {
+    color: var(--gold);
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    transition: .25s ease;
+}
+
+.cart-icon button:hover {
+    color: #777;
+}
+
+.cart-icon i {
+    font-size: 10px !important;
+}
+
+
+/* =====================================================
+   CART COUNT
+===================================================== */
+
+#cart-count {
+    width: 10px;
+
+    height: 10px;
+
+    min-width: 10px;
+
+    min-height: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+
+    color: #fff;
+
+    font-size: 5px;
+
+    line-height: 1;
+}
+/* Cart page: white card ko line se cover karne ke liye */
+.product-details-page {
+    position: relative;
+    z-index: 9999 !important;
+}
+
+.product-details-page .container {
+    position: relative;
+    z-index: 9999 !important;
+}
+
+.product-details-wrapper {
+    position: relative;
+    z-index: 9999 !important;
+    isolation: isolate;
+    background: #ffffff !important;
+}
+
+/* Cart content white background ke upar rahe */
+.product-details-wrapper #cartSection,
+.product-details-wrapper #emptyCart {
+    position: relative;
+    z-index: 1;
+    background-color: #ffffff;
+}
+
+/* Cart card ke andar ki line ko hide karne ke liye */
+.product-details-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* =====================================================
+   CART SECTION
+===================================================== */
+
+#cartSection {
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0;
+
+    padding: 75px 60px 80px !important;
+}
+
+
+/* =====================================================
+   CART HEADING
+===================================================== */
+
+.cart-heading {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 24px;
+
+    font-weight: 400;
+
+    color: #222;
+
+    letter-spacing: .3px;
+
+    margin: 0 0 25px 0 !important;
+}
+
+
+/* =====================================================
+   CART ROW
+===================================================== */
+
+#cartSection .row {
+    margin: 0;
+
+    --bs-gutter-x: 20px;
+
+    --bs-gutter-y: 20px;
+}
+
+
+/* =====================================================
+   LEFT PRODUCT COLUMN
+===================================================== */
+
+#cartSection .col-lg-8 {
+    padding: 0;
+}
+
+
+/* =====================================================
+   TABLE RESPONSIVE
+===================================================== */
+
+.table-responsive {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background-color: #ffffff;
+
+    border: 1px solid var(--border) !important;
+}
+
+
+/* =====================================================
+   CART TABLE
+===================================================== */
+
+.table {
+    width: 100%;
+
+    margin: 0;
+
+    border-collapse: collapse;
+
+    background-color: #ffffff;
+}
+
+
+/* =====================================================
+   TABLE HEADER
+===================================================== */
+
+.cart-table-head {
+    background-color: var(--soft-bg);
+}
+
+.cart-table-head th {
+    height: 45px;
+
+    padding: 10px 14px;
+
+    background-color: var(--soft-bg);
+
+    border-bottom: 1px solid var(--border);
+
+    color: #333;
+
+    font-family: "Montserrat", Arial, sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    vertical-align: middle;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   TABLE BODY
+===================================================== */
+
+.table tbody td {
+    height: 88px;
+
+    padding: 10px 14px;
+
+    border-bottom: 1px solid var(--border);
+
+    color: #777;
+
+    font-family: "Montserrat", Arial, sans-serif;
+
+    font-size: 9px;
+
+    vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.product-image {
+    width: 60px;
+
+    height: 60px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin: 0 auto;
+
+    background-color: #ffffff;
+}
+
+
+/* =====================================================
+   PRODUCT NAME
+===================================================== */
+
+.product-name {
+    display: inline-block;
+
+    max-width: 180px;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    color: #777;
+}
+
+
+/* =====================================================
+   REMOVE BUTTON
+===================================================== */
+
+.table tbody td:first-child button {
+    width: 22px;
+
+    height: 22px;
+
+    padding: 0;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.table tbody td:first-child button:hover {
+    color: #222;
+
+    border-color: #999;
+
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   QUANTITY BOX
+===================================================== */
+
+.quantity-box {
+    width: 115px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: stretch;
+
+    justify-content: center;
+
+    border: 1px solid #d7d7d7;
+
+    background-color: #ffffff;
+}
+
+
+/* =====================================================
+   QUANTITY BUTTONS
+===================================================== */
+
+.quantity-box button {
+    width: 38px;
+
+    min-width: 38px;
+
+    height: 38px;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: 0;
+
+    background-color: #ffffff;
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+
+/* =====================================================
+   SPACE AROUND + / - BUTTON
+===================================================== */
+
+.quantity-box button:first-child {
+    margin-right: 6px;
+}
+
+.quantity-box button:last-child {
+    margin-left: 6px;
+}
+
+
+/* =====================================================
+   QUANTITY BUTTON HOVER
+===================================================== */
+
+.quantity-box button:hover {
+    background-color: #f5f5f5;
+
+    color: #222;
+}
+
+
+/* =====================================================
+   QUANTITY INPUT
+===================================================== */
+
+.quantity-box input {
+    width: 35px;
+
+    height: 38px;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: 0;
+
+    border-left: 1px solid #eeeeee;
+
+    border-right: 1px solid #eeeeee;
+
+    border-radius: 0;
+
+    background-color: #ffffff;
+
+    color: #555;
+
+    font-size: 9px;
+
+    text-align: center;
+
+    box-shadow: none;
+
+    outline: none;
+}
+
+.quantity-box input:focus {
+    border-color: #eeeeee;
+
+    box-shadow: none;
+
+    outline: none;
+}
+
+
+/* =====================================================
+   RIGHT TOTAL COLUMN
+===================================================== */
+
+#cartSection .col-lg-4 {
+    padding: 0;
+}
+
+
+/* =====================================================
+   CART TOTAL BOX
+===================================================== */
+
+.cart-total-box {
+    width: 100%;
+
+    min-height: 348px;
+
+    padding: 20px !important;
+
+    background-color: var(--soft-bg);
+
+    border: 1px solid var(--border) !important;
+}
+
+
+/* =====================================================
+   CART TOTAL HEADING
+===================================================== */
+
+.cart-total-heading {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    color: #222;
+
+    margin: 0 0 20px 0 !important;
+}
+
+
+/* =====================================================
+   TOTAL ROWS
+===================================================== */
+
+.cart-total-box .d-flex {
+    font-size: 9px;
+
+    color: #777;
+
+    border-color: #dddddd !important;
+}
+
+.cart-total-box .d-flex span:last-child {
+    color: #777;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   COUPON TEXT
+===================================================== */
+
+.cart-total-box .mt-5 {
+    margin-top: 30px !important;
+}
+
+.cart-total-box p {
+    color: #777;
+
+    font-size: 9px;
+
+    margin-bottom: 18px !important;
+}
+
+
+/* =====================================================
+   CHECKOUT BUTTON
+===================================================== */
+
+.checkout-btn {
+    width: 100%;
+
+    min-height: 70px;
+
+    border: 1px solid #222 !important;
+
+    background-color: transparent;
+
+    color: #222;
+
+    font-family: "Montserrat", Arial, sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 400;
+
+    letter-spacing: 1.5px;
+
+    line-height: 2;
+
+    transition: all .3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #222;
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   EMPTY CART
+===================================================== */
+
+#emptyCart {
+    width: 100%;
+
+    min-height: 500px;
+
+    padding: 80px 20px !important;
+
+    background-color: #ffffff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+#emptyCart.d-none {
+    display: none !important;
+}
+
+#emptyCart i {
+    color: var(--gold);
+
+    font-size: 50px;
+}
+
+#emptyCart h2 {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    color: #222;
+}
+
+#emptyCart p {
+    font-size: 10px;
+
+    margin-bottom: 25px;
+}
+
+#emptyCart a {
+    border-radius: 0;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.jewelry-footer {
+    width: 100%;
+
+    background-color: #ffffff;
+
+    border-top: 1px solid #dddddd;
+
+    padding-top: 35px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   FOOTER LOGO
+===================================================== */
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo .logo-img {
+    width: 65px;
+
+    height: auto;
+}
+
+
+/* =====================================================
+   FOOTER MENU
+===================================================== */
+
+.footer-menu {
+    margin-bottom: 20px;
+}
+
+.footer-menu a {
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 7px;
+
+    font-weight: 400;
+
+    letter-spacing: .5px;
+
+    transition: .3s ease;
+}
+
+.footer-menu a:hover {
+    color: var(--gold);
+}
+
+
+/* =====================================================
+   SOCIAL ICONS
+===================================================== */
+
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    transition: .3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--gold);
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   COPYRIGHT
+===================================================== */
+
+.copyright {
+    border-top: 1px solid #eeeeee;
+
+    margin-top: 10px;
+}
+
+.copyright p {
+    color: #999;
+
+    font-size: 7px;
+
+    letter-spacing: .5px;
+}
+
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media (max-width: 991.98px) {
+
+    /* NAVBAR */
+
+    .jewellery-navbar,
+    .jewellery-navbar .container-fluid {
+        height: 45px;
+
+        min-height: 45px;
+        z-index: 123456;
+    }
+
+    .jewellery-navbar {
+        padding: 0;
+    }
+
+    .navbar-right {
+        min-height: 45px;
+    }
+
+    .center-logo {
+        position: absolute;
+
+        left: 50%;
+
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+    }
+
+    .center-logo img {
+        width: 65px;
+    }
+
+    .jewellery-navbar .navbar-nav {
+        gap: 5px;
+    }
+
+    .jewellery-navbar .navbar-collapse {
+        background-color: #ffffff;
+
+        border-top: 1px solid #eeeeee;
+
+        margin-top: 0;
+    }
+
+    .jewellery-navbar .nav-link {
+        padding: 6px 10px;
+
+        font-size: 7px;
+    }
+
+
+    /* MAIN CART */
+
+    .product-details-page {
+        padding: 35px 20px;
+    }
+
+    .product-details-page > .container {
+        max-width: 100%;
+    }
+
+    #cartSection {
+        padding: 50px 30px 60px !important;
+    }
+
+    .cart-heading {
+        font-size: 22px;
+    }
+
+    .cart-total-box {
+        margin-top: 5px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+===================================================== */
+
+@media (max-width: 767.98px) {
+
+    /* NAVBAR */
+
+    .jewellery-navbar,
+    .jewellery-navbar .container-fluid {
+        height: 50px;
+
+        min-height: 50px;
+    }
+
+    .jewellery-navbar {
+        padding: 0;
+    }
+
+    .mobile-logo {
+        display: block;
+
+        font-size: 18px;
+    }
+
+    .center-logo {
+        display: none;
+    }
+
+    .navbar-right {
+        min-height: 50px;
+
+        gap: 8px !important;
+    }
+
+    .cart-price {
+        font-size: 7px;
+    }
+
+    .login-icon {
+        font-size: 10px;
+    }
+
+    #cart-count {
+        width: 10px;
+
+        height: 10px;
+
+        font-size: 5px;
+    }
+
+
+    /* MAIN */
+
+    .product-details-page {
+        padding: 20px 10px;
+    }
+
+    #cartSection {
+        padding: 40px 15px 50px !important;
+    }
+
+    .cart-heading {
+        font-size: 20px;
+
+        margin-bottom: 25px !important;
+    }
+
+
+    /* TABLE */
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .cart-table-head th {
+        padding: 12px 10px;
+
+        font-size: 8px;
+    }
+
+    .table tbody td {
+        padding: 12px 10px;
+
+        font-size: 8px;
+    }
+
+    .product-image {
+        width: 50px;
+
+        height: 50px;
+    }
+
+    .product-name {
+        font-size: 9px;
+
+        min-width: 120px;
+
+        max-width: 150px;
+    }
+
+
+    /* QUANTITY */
+
+    .quantity-box {
+        width: 105px;
+
+        height: 35px;
+    }
+
+    .quantity-box button {
+        width: 32px;
+
+        min-width: 32px;
+
+        height: 33px;
+
+        font-size: 14px;
+    }
+
+    .quantity-box button:first-child {
+        margin-right: 4px;
+    }
+
+    .quantity-box button:last-child {
+        margin-left: 4px;
+    }
+
+    .quantity-box input {
+        width: 35px;
+
+        height: 33px;
+
+        font-size: 8px;
+    }
+
+
+    /* TOTAL */
+
+    .cart-total-box {
+        padding: 20px !important;
+
+        min-height: auto;
+    }
+
+    .cart-total-heading {
+        font-size: 15px;
+    }
+
+
+    /* EMPTY CART */
+
+    #emptyCart {
+        min-height: 400px;
+    }
+
+    #emptyCart h2 {
+        font-size: 25px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-menu {
+        padding: 0 20px;
+
+        gap: 15px !important;
+    }
+
+    .footer-menu a {
+        font-size: 7px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    /* NAVBAR */
+
+    .jewellery-navbar {
+        padding: 0;
+    }
+
+    .navbar-right {
+        gap: 6px !important;
+    }
+
+    .cart-price {
+        font-size: 7px;
+    }
+
+
+    /* MAIN */
+
+    .product-details-page {
+        padding: 15px 5px;
+    }
+
+    #cartSection {
+        padding: 30px 10px 40px !important;
+    }
+
+    .cart-heading {
+        font-size: 19px;
+    }
+
+
+    /* PRODUCT */
+
+    .product-image {
+        width: 45px;
+
+        height: 45px;
+    }
+
+    .product-name {
+        font-size: 8px;
+
+        min-width: 105px;
+
+        max-width: 120px;
+    }
+
+
+    /* QUANTITY */
+
+    .quantity-box {
+        width: 95px;
+
+        height: 32px;
+    }
+
+    .quantity-box button {
+        width: 27px;
+
+        min-width: 27px;
+
+        height: 30px;
+
+        font-size: 13px;
+    }
+
+    .quantity-box button:first-child {
+        margin-right: 3px;
+    }
+
+    .quantity-box button:last-child {
+        margin-left: 3px;
+    }
+
+    .quantity-box input {
+        width: 35px;
+
+        height: 30px;
+
+        font-size: 8px;
+    }
+
+
+    /* TABLE */
+
+    .table tbody td {
+        padding: 10px 6px;
+    }
+
+
+    /* TOTAL */
+
+    .cart-total-box {
+        padding: 18px !important;
+    }
+
+    .checkout-btn {
+        min-height: 60px;
+
+        font-size: 8px;
+
+        padding-top: 15px !important;
+
+        padding-bottom: 15px !important;
+    }
+
+
+    /* FOOTER */
+
+    .footer-logo .logo-img {
+        width: 60px;
+    }
+
+}
+/* =====================================================
+   MOBILE NAVBAR - LOGO LEFT & HAMBURGER RIGHT
+===================================================== */
+
+@media (max-width: 991.98px) {
+
+    /* NAVBAR */
+    .site-header {
+        height: 105px;
+    }
+
+    .jewellery-navbar {
+        position: relative;
+        height: 105px !important;
+        min-height: 105px !important;
+        padding: 0 !important;
+        background: #fff;
+        z-index: 9999;
+    }
+
+    /* NAVBAR CONTAINER */
+    .jewellery-navbar > .container-fluid {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 105px !important;
+        min-height: 105px !important;
+        padding: 0 15px;
+    }
+
+    /* LOGO + HAMBURGER WRAPPER */
+    .mobile-brand-toggle {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 0;
+    }
+
+    /* LOGO LEFT SIDE */
+    .mobile-logo {
+        display: block !important;
+        order: 1;
+        margin-right: auto;
+        line-height: 0;
+        flex-shrink: 0;
+    }
+
+    .mobile-logo img {
+        display: block;
+        width: 130px;
+        height: auto;
+    }
+
+    /* HAMBURGER RIGHT SIDE */
+    .mobile-brand-toggle .navbar-toggler {
+        display: block !important;
+        order: 2;
+        margin-left: auto;
+        padding: 8px 15px;
+        border: 2px solid var(--gold) !important;
+        border-radius: 0 !important;
+        color: var(--gold) !important;
+        background: #fff;
+        box-shadow: none !important;
+        font-size: 25px;
+        line-height: 1.2;
+        flex-shrink: 0;
+    }
+
+    .mobile-brand-toggle .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
+
+    /* HIDE DESKTOP CENTER LOGO */
+    .jewellery-navbar .center-logo {
+        display: none !important;
+    }
+
+    /* FULL-WIDTH MENU WHEN HAMBURGER IS CLICKED */
+    .jewellery-navbar .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto !important;
+        padding: 25px 15px 20px;
+        margin: 0;
+        background: #fff;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        box-shadow: none;
+        z-index: 10000;
+    }
+
+    /* MENU LINKS CENTERED VERTICALLY */
+    .jewellery-navbar .navbar-left,
+    .jewellery-navbar .navbar-nav {
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    /* HOME, SHOP, ABOUT, CONTACT */
+    .jewellery-navbar .navbar-left .nav-link,
+    .jewellery-navbar .navbar-nav .nav-link {
+        display: block;
+        padding: 0;
+        color: #333;
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .jewellery-navbar .navbar-left .nav-link:hover,
+    .jewellery-navbar .navbar-left .nav-link.active,
+    .jewellery-navbar .navbar-nav .nav-link:hover,
+    .jewellery-navbar .navbar-nav .nav-link.active {
+        color: var(--gold);
+    }
+
+    /* HIDE LOGIN AND CART ON MOBILE */
+    .jewellery-navbar .navbar-right {
+        display: none !important;
+    }
+}
+
+/* =====================================================
+   SMALL MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .jewellery-navbar > .container-fluid {
+        padding: 0 12px;
+    }
+
+    .mobile-logo img {
+        width: 110px;
+    }
+
+    .mobile-brand-toggle .navbar-toggler {
+        padding: 5px 10px;
+        font-size: 21px;
+    }
+
+    .jewellery-navbar .navbar-left,
+    .jewellery-navbar .navbar-nav {
+        gap: 18px;
+    }
+}

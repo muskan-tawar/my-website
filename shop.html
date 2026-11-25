@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="shopstlyle.css">
+    <link rel="stylesheet" href="cartstyle.css">
+</head>
+
+<body>
+
+    <!-- CENTER LINE -->
+    <div class="body-center-line"></div>
+
+    <!-- NAVBAR -->
+    <header class="site-header position-relative">
+
+        <nav class="navbar navbar-expand-lg jewellery-navbar position-fixed top-0 start-0 w-100 bg-white border-bottom">
+            <div class="container-fluid position-relative">
+
+                <!-- MOBILE LOGO -->
+                <div class="mobile-brand-toggle">
+                    <a href="home.html" class="mobile-logo" aria-label="Jewellery Store Home">
+                        <img src="imgs/logo-retina.png" alt="Jewellery Store Logo">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        ☰
+                    </button>
+                </div>
+
+                <!-- NAVIGATION -->
+                <div class="collapse navbar-collapse" id="mainNavbar">
+
+                    <ul class="navbar-nav navbar-left text-uppercase d-flex align-items-center">
+                        <li class="nav-item">
+                            <a href="home.html" class="nav-link">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="shop.html" class="nav-link active">Shop</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+
+                    <!-- CENTER LOGO -->
+                    <a href="home.html" class="center-logo position-absolute" aria-label="Jewellery Store Home">
+                        <img src="imgs/logo-retina.png" alt="Jewellery Store Logo">
+                    </a>
+
+                    <!-- RIGHT NAVBAR -->
+                    <div class="navbar-right d-flex align-items-center position-relative">
+
+                        <button type="button" class="btn login-icon" aria-label="Open Login">
+                            <i class="bi bi-person"></i>
+                        </button>
+
+                        <span class="cart-price" id="cart-total">$0.00</span>
+
+                        <div class="cart-icon position-relative">
+                            <button type="button" id="navbarCartBtn"
+                                class="btn navbar-cart-button p-0 border-0"
+                                onclick="openCart()" aria-label="Open Shopping Cart">
+
+                                <i class="bi bi-bag"></i>
+
+                                <span id="cart-count"
+                                    class="position-absolute d-flex align-items-center justify-content-center rounded-circle">0</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SHOP PAGE -->
+    <main id="shopPage">
+
+        <section class="shop-page position-relative">
+            <div class="container-fluid">
+                <div class="shop-wrapper mx-auto position-relative">
+
+                    <!-- SHOP TOP BAR -->
+                    <div class="shop-topbar d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-4">
+
+                        <!-- FILTER BUTTON -->
+                        <button class="btn btn-outline-dark filter-btn d-inline-flex align-items-center gap-2"
+                            id="filterBtn" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#filterSidebar" aria-controls="filterSidebar">
+
+                            <i class="bi bi-sliders"></i>
+                            FILTER
+                        </button>
+
+                        <!-- SHOP CONTROLS -->
+                        <div class="shop-controls d-flex align-items-center justify-content-between justify-content-sm-end gap-3">
+
+                            <!-- SORTING -->
+                            <div class="sorting-box d-flex align-items-center gap-3">
+                                <span>Default sorting</span>
+
+                                <select id="sortProducts" aria-label="Sort products">
+                                    <option value="default">Default sorting</option>
+                                    <option value="popular">Sort by popularity</option>
+                                    <option value="rating">Sort by average rating</option>
+                                    <option value="latest">Sort by latest</option>
+                                    <option value="low">Sort by price: low to high</option>
+                                    <option value="high">Sort by price: high to low</option>
+                                </select>
+
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+
+                            <!-- GRID VIEW -->
+                            <button class="btn view-btn active" id="gridView"
+                                type="button" aria-label="Grid View">
+                                <i class="bi bi-grid-3x3-gap-fill"></i>
+                            </button>
+
+                            <!-- LIST VIEW -->
+                            <button class="btn view-btn" id="listView"
+                                type="button" aria-label="List View">
+                                <i class="bi bi-list"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTS SECTION -->
+                    <div class="products-section mt-4">
+
+                        <p class="mb-3" id="productCount" aria-live="polite">
+                            Loading products...
+                        </p>
+
+                        <!-- PRODUCTS WILL LOAD FROM products.json -->
+                        <div id="productGrid" class="product-grid">
+                            <p>Loading products...</p>
+                        </div>
+
+                    </div>
+                    <!-- END PRODUCTS SECTION -->
+
+                </div>
+                <!-- END SHOP WRAPPER -->
+            </div>
+        </section>
+    </main>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1"
+        aria-labelledby="checkoutModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-0">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
+                    <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+
+                        <!-- CUSTOMER DETAILS -->
+                        <div class="col-md-7">
+                            <h5 class="mb-4">Customer Details</h5>
+
+                            <form id="checkoutForm">
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="customerName">Full Name</label>
+                                    <input type="text" class="form-control rounded-0"
+                                        id="customerName" placeholder="Enter your name" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="customerEmail">Email</label>
+                                    <input type="email" class="form-control rounded-0"
+                                        id="customerEmail" placeholder="Enter your email" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="customerPhone">Phone Number</label>
+                                    <input type="tel" class="form-control rounded-0"
+                                        id="customerPhone" placeholder="Enter phone number" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="customerAddress">Address</label>
+                                    <textarea class="form-control rounded-0" id="customerAddress"
+                                        rows="3" placeholder="Enter your address" required></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="paymentMethod">Payment Method</label>
+                                    <select class="form-select rounded-0" id="paymentMethod" required>
+                                        <option value="">Select payment method</option>
+                                        <option value="cod">Cash on Delivery</option>
+                                        <option value="online">Online Payment</option>
+                                    </select>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <!-- ORDER SUMMARY -->
+                        <div class="col-md-5">
+                            <div class="checkout-summary border p-4">
+                                <h5 class="mb-4">Your Order</h5>
+
+                                <div id="checkoutItems"></div>
+                                <hr>
+
+                                <div class="d-flex justify-content-between">
+                                    <span>Subtotal</span>
+                                    <strong id="checkoutSubtotal">$0.00</strong>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>Shipping</span>
+                                    <span class="text-success">Free</span>
+                                </div>
+
+                                <hr>
+
+                                <div class="d-flex justify-content-between">
+                                    <strong>Total</strong>
+                                    <strong id="checkoutTotal">$0.00</strong>
+                                </div>
+
+                                <button type="submit" form="checkoutForm"
+                                    class="btn btn-dark w-100 py-3 mt-4">
+                                    <i class="bi bi-lock me-2"></i>
+                                    PLACE ORDER
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORDER SUCCESS MODAL -->
+    <div class="modal fade" id="orderSuccessModal" tabindex="-1"
+        aria-labelledby="orderSuccessModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-0">
+
+                <div class="modal-body text-center p-5">
+                    <div class="success-icon mb-4">
+                        <i class="bi bi-check-lg"></i>
+                    </div>
+
+                    <h3 id="orderSuccessModalLabel">Order Placed Successfully!</h3>
+
+                    <p class="text-secondary mt-3">
+                        Thank you for shopping with Jewellery Store.
+                    </p>
+
+                    <p>Your order number is: <strong id="orderNumber"></strong></p>
+
+                    <button type="button" class="btn btn-dark px-5 py-3 mt-3"
+                        data-bs-dismiss="modal">
+                        CONTINUE SHOPPING
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="jewelry-footer position-relative border-top z-2">
+        <div class="container-fluid">
+
+            <div class="footer-logo text-center pt-5 pb-5">
+                <img src="imgs/logo-retina.png" alt="Jewelry Store Logo" class="logo-img">
+            </div>
+
+            <div class="footer-menu d-flex flex-wrap justify-content-center align-items-center gap-3 gap-lg-5">
+                <a href="#">FAQ</a>
+                <a href="#">Virtual Shopping</a>
+                <a href="#">Shipping &amp; Returns</a>
+                <a href="#">Create Your Jewelry</a>
+                <a href="#">Ring Sizer</a>
+                <a href="#">Stores</a>
+            </div>
+
+            <div class="social-icons d-flex justify-content-center align-items-center gap-4 gap-lg-5">
+                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+
+            <div class="copyright text-center">
+                <p class="mb-0">Copyright &copy; 2026 Jewellery Store</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" class="btn position-fixed back-to-top"
+        title="Back to Top" aria-label="Back to Top" type="button">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <!-- LOGIN OVERLAY -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-box position-relative bg-white">
+
+            <button type="button" class="login-close" id="loginClose">&times;</button>
+
+            <div class="login-field">
+                <label for="loginUsername">Username or Email Address</label>
+                <input type="text" id="loginUsername" autocomplete="username">
+            </div>
+
+            <div class="login-field">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" autocomplete="current-password">
+            </div>
+
+            <div class="remember-me d-flex align-items-center">
+                <input type="checkbox" id="rememberMe" checked>
+                <label for="rememberMe">Remember Me</label>
+            </div>
+
+            <button type="button" class="login-button d-block" id="loginButton">
+                LOG IN
+            </button>
+
+            <a href="#" class="lost-password">Lost your password?</a>
+        </div>
+    </div>
+
+    <!-- FILTER OVERLAY -->
+    <div class="filter-overlay" id="filterOverlay"></div>
+
+    <!-- FILTER SIDEBAR -->
+    <aside class="offcanvas offcanvas-start filter-sidebar" tabindex="-1"
+        id="filterSidebar" aria-labelledby="filterSidebarLabel">
+
+        <div class="offcanvas-header p-0">
+            <button type="button"
+                class="filter-close btn position-absolute top-0 end-0 border-0 bg-transparent p-0"
+                id="filterClose" data-bs-dismiss="offcanvas" aria-label="Close filter">
+                &times;
+            </button>
+        </div>
+
+        <div class="offcanvas-body">
+
+            <!-- PRICE FILTER -->
+            <div class="filter-price-section">
+                <h2 id="filterSidebarLabel" class="mb-4 fw-normal">Filter by price</h2>
+
+                <div class="price-slider position-relative w-100">
+                    <div class="price-track position-absolute start-0 end-0">
+                        <div class="price-track-fill"></div>
+                    </div>
+
+                    <input type="range" id="minPrice" min="240" max="390"
+                        value="240" step="1" aria-label="Minimum price">
+
+                    <input type="range" id="maxPrice" min="240" max="390"
+                        value="390" step="1" aria-label="Maximum price">
+                </div>
+
+                <div class="price-values fw-semibold">
+                    <span id="minPriceValue">$240</span>
+                    <span id="maxPriceValue">$390</span>
+                </div>
+
+                <div class="filter-action-buttons d-flex justify-content-end gap-2 mt-4">
+                    <button class="btn btn-outline-dark reset-filter d-none"
+                        id="resetFilter" type="button">RESET</button>
+
+                    <button class="btn btn-dark apply-filter"
+                        id="applyFilter" type="button">APPLY</button>
+                </div>
+            </div>
+
+            <!-- CATEGORY FILTER -->
+            <div class="category-section mt-4">
+
+                <div class="category-heading d-flex align-items-center justify-content-between">
+                    <h2 class="mb-0">Filter by Categories</h2>
+
+                    <button id="categoryToggle" class="btn p-0 border-0 bg-transparent"
+                        type="button" data-bs-toggle="collapse"
+                        data-bs-target="#categoryList" aria-expanded="true"
+                        aria-controls="categoryList">
+                        <i class="bi bi-chevron-up" id="categoryIcon"></i>
+                    </button>
+                </div>
+
+                <div class="category-list collapse show mt-3 d-flex flex-column" id="categoryList">
+
+                    <label class="category-item d-flex align-items-center">
+                        <input type="checkbox" value="Earrings"
+                            class="category-checkbox form-check-input">
+
+                        <span class="category-image d-flex align-items-center justify-content-center overflow-hidden">
+                            <img src="imgs/product-010-300x300.jpg" alt="Earrings">
+                        </span>
+
+                        <span class="category-name">Earrings (9)</span>
+                    </label>
+
+                    <label class="category-item d-flex align-items-center">
+                        <input type="checkbox" value="Necklaces"
+                            class="category-checkbox form-check-input">
+
+                        <span class="category-image d-flex align-items-center justify-content-center overflow-hidden">
+                            <img src="imgs/product-005-300x300.jpg" alt="Necklaces">
+                        </span>
+
+                        <span class="category-name">Necklaces (7)</span>
+                    </label>
+
+                    <label class="category-item d-flex align-items-center">
+                        <input type="checkbox" value="Rings"
+                            class="category-checkbox form-check-input">
+
+                        <span class="category-image d-flex align-items-center justify-content-center overflow-hidden">
+                            <img src="imgs/product-03.jpg" alt="Rings">
+                        </span>
+
+                        <span class="category-name">Rings (9)</span>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SHOP JS -->
+    <script src="shopjs.js"></script>
+
+    <!-- LOGIN JS -->
+    <script src="loginjs.js"></script>
+
+    <!-- CART JS -->
+    <script src="cartjs.js"></script>
+
+</body>
+</html>

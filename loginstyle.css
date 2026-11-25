@@ -1,0 +1,109 @@
+/* MODAL BOX */
+.login-modal-content {
+    border: none;
+    border-radius: 0;
+    background-color: #ffffff;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 10000;
+}
+/* LOGIN MODAL - ALWAYS ON TOP */
+#loginModal { z-index: 10050 !important;}
+.modal-backdrop { z-index: 10040 !important;
+}
+/* Login content */
+#loginModal .modal-dialog {  position: relative;
+    z-index: 10051 !important;
+}
+/* Login box */
+#loginModal .modal-content { position: relative;
+    z-index: 10052 !important;
+}
+/* MODAL HEADER */
+.login-modal-content .modal-header { min-height: 55px;}
+/* CLOSE BUTTON */
+.login-modal-content .btn-close { opacity: 0.7;
+    width: 18px;
+    height: 18px;
+    margin-right: 2px;
+}
+.login-modal-content .btn-close:hover {  opacity: 1;}
+ /* LABEL */
+.login-label {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #666666;
+    margin-bottom: 15px;
+}
+ /* INPUT */
+.login-input {
+    height: 70px;
+    border: 1px solid #999999;
+    border-radius: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 17px;
+    padding: 12px 15px;
+    box-shadow: none !important;
+}
+/* Input focus */
+.login-input:focus {
+    border-color: #333333;
+    box-shadow: none !important;
+}
+ /* REMEMBER ME */
+.remember-label {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    color: #666666;
+    padding-left: 5px;
+}
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px !important;
+    cursor: pointer;
+}
+.form-check-input:focus {  box-shadow: none;}
+/* LOGIN BUTTON */
+.login-button {
+    background-color: transparent;
+    color: #222222;
+    border: 1px solid #222222;
+    border-radius: 0;
+    padding: 13px 23px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+/* Hover */
+.login-button:hover {
+    background-color: #222222;
+    color: #ffffff;
+    border-color: #222222;
+}
+   /* LOST PASSWORD */
+.lost-password {
+    font-family: "Montserrat", sans-serif;
+    font-size: 17px;
+    color: #666666;
+    text-decoration: none;
+}
+.lost-password:hover {
+    color: #111111;
+    text-decoration: underline;
+}
+/* ERROR */
+.invalid-feedback { font-family: "Montserrat", sans-serif;
+}
+/* RESPONSIVE */
+@media (max-width: 576px) {
+
+    .login-label { font-size: 17px; }
+    .login-input {  height: 60px;
+        font-size: 15px;
+    }
+    .remember-label {   font-size: 16px;  }
+    .lost-password { font-size: 15px; }
+}

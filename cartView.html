@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cart | Jewelry Store</title>
+
+
+    <!-- =====================================================
+         BOOTSTRAP CSS
+    ====================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         CART VIEW CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="cartViewstyle.css"
+    >
+
+
+    <!-- =====================================================
+         GLOBAL CART CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="cartstyle.css"
+    >
+
+</head>
+
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg jewellery-navbar">
+
+    <div class="container-fluid">
+
+        <!-- MOBILE LOGO + HAMBURGER -->
+        <div class="mobile-brand-toggle">
+
+            <!-- Mobile Logo -->
+            <a href="home.html" class="mobile-logo">
+                <img src="imgs/logo-retina.png" alt="Jewellery Store">
+            </a>
+
+            <!-- Hamburger Button -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+        </div>
+
+        <!-- NAVIGATION MENU -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav navbar-left text-uppercase">
+
+                <li class="nav-item">
+                    <a href="home.html" class="nav-link">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="shop.html" class="nav-link">Shop</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+
+            </ul>
+
+            <!-- DESKTOP CENTER LOGO -->
+            <div class="center-logo">
+                <a href="home.html">
+                    <img
+                        src="imgs/logo-retina.png"
+                        alt="Jewellery Store">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE: LOGIN + CART -->
+        <div class="navbar-right d-flex align-items-center gap-3 ms-auto">
+
+            <button
+                type="button"
+                class="btn login-icon p-0"
+                aria-label="Open Login">
+                <i class="bi bi-person"></i>
+            </button>
+
+            <div class="cart-price" id="cart-total">
+                $0.00
+            </div>
+
+            <div class="cart-icon">
+
+                <button
+                    type="button"
+                    class="btn p-0 border-0 bg-transparent position-relative"
+                    onclick="openCart()"
+                    aria-label="Open Cart">
+
+                    <i class="bi bi-bag fs-5"></i>
+
+                    <span
+                        id="cart-count"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                        0
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     MAIN CART PAGE
+===================================================== -->
+
+<main class="product-details-page">
+
+    <div class="container">
+
+        <!-- =================================================
+             WHITE MAIN CART CARD
+        ================================================== -->
+
+        <div class="product-details-wrapper">
+
+
+            <section
+                id="cartSection"
+                class="container py-5"
+            >
+
+
+                <!-- =================================================
+                     CART HEADING
+                ================================================== -->
+
+                <h1 class="cart-heading mb-4">
+                    Cart
+                </h1>
+
+
+                <div class="row g-4">
+
+
+                    <!-- =================================================
+                         LEFT SIDE - PRODUCTS
+                    ================================================== -->
+
+                    <div class="col-lg-8">
+
+
+                        <div class="table-responsive border">
+
+
+                            <table
+                                class="table mb-0 align-middle"
+                            >
+
+
+                                <!-- Table Heading -->
+
+                                <thead class="cart-table-head">
+
+                                    <tr>
+
+                                        <th class="text-center">
+                                        </th>
+
+                                        <th>
+                                            Product
+                                        </th>
+
+                                        <th>
+                                            Price
+                                        </th>
+
+                                        <th>
+                                            Quantity
+                                        </th>
+
+                                        <th>
+                                            Subtotal
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <!-- =================================================
+                                     DYNAMIC CART PRODUCTS
+                                ================================================== -->
+
+                                <tbody id="cartTableBody">
+
+                                    <!--
+                                        Products will be inserted
+                                        by cartViewjs.js
+                                    -->
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         RIGHT SIDE - CART TOTALS
+                    ================================================== -->
+
+                    <div class="col-lg-4">
+
+
+                        <div class="border p-4 cart-total-box">
+
+
+                            <!-- Cart Totals Heading -->
+
+                            <h4 class="cart-total-heading mb-4">
+                                Cart totals
+                            </h4>
+
+
+                            <!-- =================================================
+                                 SUBTOTAL
+                            ================================================== -->
+
+                            <div
+                                class="d-flex justify-content-between py-3 border-bottom"
+                            >
+
+                                <span>
+                                    Subtotal
+                                </span>
+
+                                <span id="cartSubtotal">
+                                    $0.00
+                                </span>
+
+                            </div>
+
+
+                            <!-- =================================================
+                                 TOTAL
+                            ================================================== -->
+
+                            <div
+                                class="d-flex justify-content-between py-3 border-bottom"
+                            >
+
+                                <span>
+                                    Total
+                                </span>
+
+                                <span id="cartTotal">
+                                    $0.00
+                                </span>
+
+                            </div>
+
+
+                            <!-- =================================================
+                                 COUPON
+                            ================================================== -->
+
+                            <div class="mt-5">
+
+                                <p class="mb-4">
+                                    Have a coupon?
+                                </p>
+
+                            </div>
+
+
+                            <!-- =================================================
+                                 CHECKOUT BUTTON
+                            ================================================== -->
+
+                            <button
+                                type="button"
+                                class="btn btn-outline-dark w-100 py-4 rounded-0 checkout-btn"
+                                onclick="proceedCheckout()"
+                            >
+
+                                PROCEED TO
+                                <br>
+                                CHECKOUT
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 EMPTY CART
+            ====================================================== -->
+
+            <section
+                id="emptyCart"
+                class="container py-5 text-center d-none"
+            >
+
+                <i class="bi bi-bag fs-1"></i>
+
+
+                <h2 class="mt-3">
+                    Your cart is empty
+                </h2>
+
+
+                <p class="text-secondary">
+                    There are no products in your cart.
+                </p>
+
+
+                <a
+                    href="shop.html"
+                    class="btn btn-dark px-4 py-3"
+                >
+                    CONTINUE SHOPPING
+                </a>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="jewelry-footer">
+
+    <div class="container-fluid">
+
+
+        <!-- Footer Logo -->
+
+        <div class="footer-logo text-center">
+
+            <img
+                src="imgs/logo-retina.png"
+                alt="Jewelry Store Logo"
+                class="logo-img"
+            >
+
+        </div>
+
+
+        <!-- Footer Menu -->
+
+        <div
+            class="footer-menu d-flex flex-wrap justify-content-center align-items-center gap-3 gap-lg-5"
+        >
+
+            <a href="#">
+                FAQ
+            </a>
+
+            <a href="#">
+                Virtual Shopping
+            </a>
+
+            <a href="#">
+                Shipping & Returns
+            </a>
+
+            <a href="#">
+                Create Your Jewelry
+            </a>
+
+            <a href="#">
+                Ring Sizer
+            </a>
+
+            <a href="#">
+                Stores
+            </a>
+
+        </div>
+
+
+        <!-- Social Icons -->
+
+        <div
+            class="social-icons d-flex justify-content-center align-items-center gap-4 gap-lg-5"
+        >
+
+            <a href="#">
+                <i class="bi bi-facebook"></i>
+            </a>
+
+            <a href="#">
+                <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="#">
+                <i class="bi bi-twitter-x"></i>
+            </a>
+
+            <a href="#">
+                <i class="bi bi-youtube"></i>
+            </a>
+
+        </div>
+
+
+        <!-- Copyright -->
+
+        <div class="copyright text-center py-3">
+
+            <p class="mb-0">
+                Copyright © 2026 Jewellery Store
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     BOOTSTRAP JS
+===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- =====================================================
+     LOGIN JS
+===================================================== -->
+
+<script src="loginjs.js"></script>
+
+
+<!-- =====================================================
+     CART VIEW JS
+===================================================== -->
+
+<script src="cartViewjs.js"></script>
+
+
+<!-- =====================================================
+     GLOBAL CART JS - MUST BE LAST
+===================================================== -->
+
+<script src="cartjs.js"></script>
+
+
+</body>
+
+</html>

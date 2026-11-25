@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Jewellery Store</title>
+    <!-- =====================================================
+         BOOTSTRAP CSS
+    ====================================================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="productsStyle.css">
+
+    <link rel="stylesheet" href="loginstyle.css">
+
+    <link rel="stylesheet" href="cartstyle.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+    <header class="site-header bg-light">
+
+        <nav class="navbar navbar-expand-lg jewellery-navbar position-fixed w-100 bg-white ">
+
+            <div class="container-fluid px-lg-5 position-relative d-flex align-items-center">
+
+                <!-- MOBILE LOGO + HAMBURGER -->
+                <div class="mobile-brand-toggle">
+
+                    <a href="home.html" class="mobile-logo" aria-label="Jewellery Store Home">
+                        <img src="imgs/logo-retina.png" alt="Jewellery Store Logo">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                        ☰
+                    </button>
+
+                </div>
+
+
+                <!-- NAVIGATION -->
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+
+                    <ul class="navbar-nav navbar-left text-uppercase d-flex flex-row">
+
+                        <li class="nav-item">
+                            <a href="home.html" class="nav-link">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="shop.html" class="nav-link active">
+                                Shop
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">
+                                About
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+                    <!-- DESKTOP CENTER LOGO -->
+
+                    <a href="home.html" class="center-logo" aria-label="Jewellery Store Home">
+
+                        <img src="imgs/logo-retina.png" alt="Jewellery Store Logo">
+
+                    </a>
+
+
+                    <!-- RIGHT NAVBAR -->
+
+                    <div class="navbar-right d-flex align-items-center ms-auto">
+
+                        <!-- LOGIN -->
+
+                        <button type="button" class="btn login-icon" aria-label="Open Login">
+                            <i class="bi bi-person"></i>
+                        </button>
+
+
+                        <!-- CART PRICE -->
+
+                        <span class="cart-price" id="cart-total">
+                            $0.00
+                        </span>
+
+
+                        <!-- CART -->
+
+                        <div class="cart-icon">
+
+                            <button type="button" id="navbarCartBtn" class="btn navbar-cart-button" onclick="openCart()"
+                                aria-label="Open Shopping Cart">
+
+                                <i class="bi bi-bag"></i>
+
+                                <span id="cart-count">
+                                    0
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- =====================================================
+     STICKY PRODUCT BAR
+===================================================== -->
+
+    <div id="stickyProductBar" class="sticky-product-bar d-flex align-items-center justify-content-between">
+
+        <div class="sticky-product-left d-flex align-items-center">
+
+            <div class="sticky-product-image  flex-shrink-0">
+
+                <img id="stickyProductImage" src="imgs/product-010-300x300.jpg" alt="Product"  class="w-100 h-100 object-fit-contain">
+
+            </div>
+
+
+            <div class="sticky-product-name">
+
+                <span id="stickyProductName">
+                    Minola Golden Earrings
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="sticky-product-right d-flex align-items-center">
+
+            <!-- PRICE -->
+
+            <div class="sticky-product-price" id="stickyProductPrice">
+                $325.00
+            </div>
+
+
+            <!-- QUANTITY -->
+
+            <div class="sticky-quantity d-flex">
+
+                <button type="button" id="stickyQuantityMinus">
+                    -
+                </button>
+
+
+                <input type="text" id="stickyProductQuantity" value="1" readonly>
+
+
+                <button type="button" id="stickyQuantityPlus">
+                    +
+                </button>
+
+            </div>
+
+
+            <!-- STICKY ADD TO CART -->
+
+            <button type="button" id="stickyAddToCart" class="sticky-add-btn">
+                ADD TO CART
+            </button>
+
+
+            <!-- SCROLL TOP -->
+
+            <button type="button" id="stickyScrollTop" class="sticky-scroll-top" aria-label="Scroll to top">
+
+                <i class="bi bi-chevron-up"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+     PRODUCT DETAILS
+===================================================== -->
+
+    <main class="product-details-page position-relative py-5">
+
+        <div class="container">
+
+            <div class="product-details-wrapper">
+
+
+                <!-- =================================================
+                 PRODUCT TOP SECTION
+            ================================================== -->
+
+                <div class="product-top-section">
+
+
+                    <!-- =================================================
+                     PRODUCT IMAGE
+                ================================================== -->
+
+                    <div class="product-image-column">
+
+                        <div class="product-detail-image" id="productImageBox">
+
+                            <img id="productDetailImage" src="imgs/product-010-300x300.jpg" alt="Product" class="w-100 h-100 object-fit-contain">
+
+
+                            <!-- ZOOM BUTTON -->
+
+                            <button type="button" id="productZoomButton" class="product-zoom-button position-absolute d-flex align-items-center justify-content-center rounded-circle bg-white"
+                                aria-label="Zoom product image">
+
+                                <i class="bi bi-search"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                     PRODUCT INFORMATION
+                ================================================== -->
+
+                    <div class="product-info-column p-0">
+
+
+                        <!-- BREADCRUMB -->
+
+                        <div class="product-breadcrumb d-flex flex-wrap">
+
+                            <span>
+                                Home
+                            </span>
+
+                            <span>
+                                /
+                            </span>
+
+                            <span id="breadcrumbCategory">
+                                Earrings
+                            </span>
+
+                            <span>
+                                /
+                            </span>
+
+                            <span id="breadcrumbName">
+                                Minola Golden Earrings
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- CATEGORY -->
+
+                        <p id="productDetailCategory" class="product-category">
+                            Earrings
+                        </p>
+
+
+
+                        <!-- PRODUCT NAME -->
+
+                        <h1 id="productDetailName" class="product-detail-title">
+                            Minola Golden Earrings
+                        </h1>
+
+
+
+                        <!-- PRICE -->
+
+                        <div class="product-price-row d-flex flex-wrap align-items-baseline">
+
+                            <span id="productDetailPrice" class="product-detail-price">
+                                $325.00
+                            </span>
+
+
+                            <span class="shipping-text">
+                                + Free Shipping
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="product-short-description">
+
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna
+                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat
+                            two.
+
+                        </p>
+
+
+
+                        <!-- =================================================
+                         QUANTITY + CART BUTTONS
+                    ================================================== -->
+
+                        <div class="product-action-row d-flex flex-wrap align-items-center">
+
+
+                            <!-- QUANTITY -->
+
+                            <div class="product-quantity d-flex flex-shrink-0">
+
+                                <button type="button" id="quantityMinus">
+                                    -
+                                </button>
+
+
+                                <input type="text" id="productQuantity" value="1" readonly>
+
+
+                                <button type="button" id="quantityPlus">
+                                    +
+                                </button>
+
+                            </div>
+
+
+
+                            <!-- CART BUTTONS -->
+
+                            <div class="product-cart-buttons d-flex flex-wrap align-items-center">
+
+
+                                <!-- ADD TO CART -->
+
+                                <button type="button" id="detailAddToCart" class="product-add-btn d-flex align-items-center justify-content-center">
+                                    ADD TO CART
+                                </button>
+
+
+                                <!-- VIEW CART -->
+
+                                <a href="cartview.html" id="viewCartButton" class="view-cart-btn align-items-center justify-content-center">
+                                    VIEW CART
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- CATEGORY -->
+
+                        <div class="detail-category-row">
+
+                            Category:
+
+                            <span id="detailCategory">
+                                Earrings
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- SAFE CHECKOUT -->
+
+                        <div class="safe-checkout w-100 d-flex align-items-center justify-content-center position-relative">
+
+                            <div class="safe-checkout-title position-absolute bg-white">
+                                Guaranteed Safe Checkout
+                            </div>
+
+
+                            <div class="payment-methods d-flex align-items-center justify-content-center flex-wrap">
+
+                                <span class="payment visa d-flex align-items-center justify-content-center">                                    VISA
+                                </span>
+
+
+                                <span class="payment mastercard">
+
+                                    <b>●</b>
+                                    <b>●</b>
+
+                                    <small>
+                                        mastercard
+                                    </small>
+
+                                </span>
+
+
+                                <span class="payment amex">
+
+                                    AMERICAN<br>
+                                    EXPRESS
+
+                                </span>
+
+
+                                <span class="payment paypal">
+                                    PayPal
+                                </span>
+
+
+                                <span class="payment apple">
+                                    Pay
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                 DESCRIPTION / REVIEWS
+            ================================================== -->
+
+                <div class="product-tabs-section d-grid">
+
+
+                    <!-- TAB MENU -->
+
+                    <div class="product-tabs-menu">
+
+                        <button class="product-tab active d-block w-100 text-start" type="button" data-tab="description">
+                            Description
+                        </button>
+
+
+                        <button class="product-tab" type="button" data-tab="reviews">
+                            Reviews (0)
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- TAB CONTENT -->
+
+                    <div class="product-tabs-content">
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div id="description" class="product-tab-content active">
+
+                            <p>
+
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat one.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- REVIEWS -->
+
+                        <div id="reviews" class="product-tab-content">
+
+                            <p>
+                                There are no reviews yet.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                 RELATED PRODUCTS
+            ================================================== -->
+
+                <section class="related-products-section mt-5">
+
+                    <h2 class="related-title">
+                        Related products
+                    </h2>
+
+
+                    <div class="related-products-grid">
+
+
+                        <!-- =================================================
+                         PRODUCT 1
+                    ================================================== -->
+
+                        <div class="related-product" data-name="Venus Diamond Earrings" data-category="Earrings"
+                            data-price="325" data-image="imgs/product-011.jpg">
+
+                            <div class="related-image d-flex align-items-center justify-content-center overflow-hidden">
+
+                                <img src="imgs/product-011.jpg" alt="Venus Diamond Earrings" class="w-100 h-100 object-fit-contain">
+
+                            </div>
+
+
+                            <p class="related-category">
+                                Earrings
+                            </p>
+
+
+                            <h6>
+                                Venus Diamond Earrings
+                            </h6>
+
+
+                            <strong>
+                                $325.00
+                            </strong>
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                         PRODUCT 2
+                    ================================================== -->
+
+                        <div class="related-product" data-name="Minola Silver Earrings" data-category="Earrings"
+                            data-price="325" data-image="imgs/product-009-300x300.jpg">
+
+                            <div class="related-image">
+
+                                <img src="imgs/product-009-300x300.jpg" alt="Minola Silver Earrings">
+
+                            </div>
+
+
+                            <p class="related-category">
+                                Earrings
+                            </p>
+
+
+                            <h6>
+                                Minola Silver Earrings
+                            </h6>
+
+
+                            <strong>
+                                $325.00
+                            </strong>
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                         PRODUCT 3
+                    ================================================== -->
+
+                        <div class="related-product" data-name="Sone Golden Earrings" data-category="Earrings"
+                            data-price="325" data-image="imgs/product-06.jpg">
+
+                            <div class="related-image">
+
+                                <img src="imgs/product-06.jpg" alt="Sone Golden Earrings">
+
+                            </div>
+
+
+                            <p class="related-category">
+                                Earrings
+                            </p>
+
+
+                            <h6>
+                                Sone Golden Earrings
+                            </h6>
+
+
+                            <strong>
+                                $325.00
+                            </strong>
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                         PRODUCT 4
+                    ================================================== -->
+
+                        <div class="related-product" data-name="Sone Golden Ring" data-category="Earrings"
+                            data-price="325" data-image="imgs/product-010-300x300.jpg">
+
+                            <div class="related-image">
+
+                                <img src="imgs/product-010-300x300.jpg" alt="Sone Golden Ring">
+
+                            </div>
+
+
+                            <p class="related-category">
+                                Earrings
+                            </p>
+
+
+                            <h6>
+                                Sone Golden Ring
+                            </h6>
+
+
+                            <strong>
+                                $325.00
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer class="jewelry-footer position-relative">
+
+        <div class="container-fluid">
+
+            <div class="footer-logo text-center">
+
+                <img src="imgs/logo-retina.png" alt="Jewelry Store Logo" class="logo-img">
+
+            </div>
+
+
+            <!-- FOOTER MENU -->
+
+            <div class="footer-menu d-flex flex-wrap justify-content-center align-items-center">
+
+                <a href="#">
+                    FAQ
+                </a>
+
+                <a href="#">
+                    Virtual Shopping
+                </a>
+
+                <a href="#">
+                    Shipping & Returns
+                </a>
+
+                <a href="#">
+                    Create Your Jewelry
+                </a>
+
+                <a href="#">
+                    Ring Sizer
+                </a>
+
+                <a href="#">
+                    Stores
+                </a>
+
+            </div>
+
+
+            <!-- SOCIAL ICONS -->
+
+            <div class="social-icons d-flex justify-content-center">
+
+                <a href="#">
+                    <i class="bi bi-facebook"></i>
+                </a>
+
+                <a href="#">
+                    <i class="bi bi-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="bi bi-twitter-x"></i>
+                </a>
+
+                <a href="#">
+                    <i class="bi bi-youtube"></i>
+                </a>
+
+            </div>
+
+
+            <!-- COPYRIGHT -->
+
+            <div class="copyright text-center">
+
+                <p>
+                    Copyright © 2026 Jewellery Store
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+     PRODUCT IMAGE ZOOM POPUP
+===================================================== -->
+
+    <div id="productImageZoomModal" class="product-image-zoom-modal position-fixed d-flex align-items-center justify-content-center" aria-hidden="true">
+
+        <!-- CLOSE BUTTON -->
+
+        <button type="button" id="productZoomClose" class="product-zoom-close position-fixed d-flex align-items-center justify-content-center" aria-label="Close zoom">
+
+            <i class="bi bi-x-lg"></i>
+
+        </button>
+
+
+        <!-- ZOOM VIEW -->
+
+        <div id="productZoomView" class="product-zoom-view">
+
+            <img id="productZoomImage" src="" alt="Zoomed Product">
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+     BOOTSTRAP JS
+===================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <!-- =====================================================
+     LOGIN JS
+===================================================== -->
+
+    <script src="loginjs.js"></script>
+
+
+
+    <!-- =====================================================
+     CART JS
+===================================================== -->
+
+    <script src="cartjs.js"></script>
+
+
+
+    <!-- =====================================================
+     PRODUCT DETAILS JS
+===================================================== -->
+
+    <script src="productsdetailsjs.js"></script>
+
+
+</body>
+
+</html>
