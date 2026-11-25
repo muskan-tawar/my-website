@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellery Store</title>
+<!-- BOOTSTRAP link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- BOOTSTRAP ICONS-->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+<!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- HOME CSS,LOGIN CSS,CART CSS -->
+    <link rel="stylesheet" href="homestlye.css">
+    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="stylesheet" href="cartstyle.css">
+</head>
+<body class="home-page">
+<!--  NAVBAR -->
+    <header class="site-header position-relative">
+        <nav class="navbar navbar-expand-lg jewellery-navbar position-fixed top-0 start-0 w-100 bg-transparent">
+            <div class=" container-fluid px-lg-5 h-100">
+                <!-- MOBILE LOGO + HAMBURGER -->
+                <div class=" mobile-brand-toggle">
+                    <a href="home.html" class="mobile-logo" aria-label="Jewellery Store Home">
+                        <img src="imgs/logo-retina.png" alt="Jewellery Store Logo"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+                </div>
+                <!-- NAVIGATION -->
+                <div class="collapse navbar-collapse h-100 position-relative" id="mainNavbar">
+                    <!-- LEFT MENU -->
+                    <ul class="navbar-nav navbar-left text-uppercase position-absolute start-0 top-50 d-flex">
+                        <li class="nav-item">
+                            <a href="home.html" class="nav-link active p-0 fw-medium text-uppercase">Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="shop.html" class="nav-link  p-0 fw-medium text-uppercase">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link  p-0 fw-medium text-uppercase">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link  p-0 fw-medium text-uppercase"> Contact</a>
+                        </li>
+                    </ul>
+                    <!-- CENTER LOGO -->
+                    <a href="home.html" class="center-logo position-absolute start-50 top-50 translate-middle d-block"  aria-label="Jewellery Store Home">
+                        <img src="imgs/logo-retina.png" alt="Jewellery Store Logo" class="d-block h-auto"> </a>
+<!--  RIGHT NAVBAR -->
+                    <div class="navbar-right position-absolute end-0 top-50 d-flex align-items-center">
+                        <!-- LOGIN -->
+                        <button type="button" class="btn login-icon p-0 border-0 bg-transparent position-relative" aria-label="Open Login">
+                            <i class="bi bi-person"></i>
+                        </button>
+                        <!-- CART PRICE -->
+                        <span class="cart-price fw-medium" id="cart-total"> $0.00 </span>
+                        <!-- CART -->
+                        <div class="cart-icon position-relative">
+                            <button type="button" id="navbarCartBtn" class="btn navbar-cart-button p-0 border-0 bg-transparent position-relative" onclick="openCart()" aria-label="Open Shopping Cart">
+                                <i class="bi bi-bag"></i>
+                                <span id="cart-count" class="position-absolute rounded-circle text-center">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="hero-section position-relative min-vh-100">
+        <!-- HERO BACKGROUND -->
+        <div class="hero-fixed-background"></div>
+        <!-- HERO CONTENT -->
+        <div class="hero-content-panel position-absolute top-0 start-0 h-100 d-flex flex-column justify-content-center z-2">
+            <h1 class="fw-normal mb-4" style="font-family: 'DM Serif Display', serif;">
+                Jewelry of
+                <br>
+                Precious Craft
+            </h1>
+            <p class="fs-6 text-secondary mb-4">Because every piece carries a precious story </p>
+            <a href="shop.html" class="text-dark text-decoration-none border border-dark p-2">- &nbsp; EXPLORE NOW</a>
+        </div>
+    </section>
+    <!-- SHOP BY CATEGORY -->
+   <section class="py-5 bg-transparent">
+        <div class="container py-lg-5">
+            <!-- SECTION HEADING -->
+            <div class="text-center mb-5">
+                <h2 class="section-title mb-3">Shop by Category</h2>
+                <a href="shop.html" class="text-dark ">- &nbsp; VIEW ALL</a>
+            </div>
+            <!-- CATEGORY GRID -->
+            <div class="row g-4 justify-content-center no-center-line">
+                <!-- EARRINGS -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card border-0 text-center h-100 bg-transparent">
+                        <img src="imgs/categorie-001-300x300.jpg" class="card-img-top category-image w-100 d-block"                            alt="Earrings">
+                        <div class="card-body-shop">
+                            <h5 class="card-title fw-medium"> EARRINGS </h5>
+                            <small class="text-secondary"> 5 PRODUCTS</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- NECKLACES -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card border-0 text-center h-100">
+                        <img src="imgs/categorie-003-300x300.jpg" class="card-img-top category-image" alt="Necklaces">
+                        <div class="card-body-shop">
+                            <h5 class="card-title"> NECKLACES</h5>
+                            <small class="text-secondary"> 3 PRODUCTS</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- RINGS -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card border-0 text-center h-100">
+                        <img src="imgs/categorie-02-300x300.jpg" class="card-img-top category-image" alt="Rings">
+                        <div class="card-body-shop">
+                            <h5 class="card-title">RINGS</h5>
+                            <small class="text-secondary"> 5 PRODUCTS </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- STORY SECTION -->
+ <section class="py-5 bg-transparent">
+        <div class="container py-lg-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-12 col-lg-8">
+                    <img src="imgs/favicon-pc1ivx190hoxzdk4un0g8tacdtry621xy6fr4gnjyi.png" alt="Ring" width="60" class="mb-4 ml-3n position-relative">
+                    <h2 class="story-title">
+                        We make high-quality, handcrafted
+                        <br class="d-none d-md-block">
+                        jewelry for over a decade, having the same
+                        <br class="d-none d-md-block">
+                        passion & values!
+                    </h2>
+                    <p class="text-secondary mt-4">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <button type="button" class="btn btn-outline-dark rounded-0 mt-3 px-4 py-3"> - &nbsp; READ MORE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- NEW ARRIVALS -->
+    <section class="py-5 bg-transparent">
+        <div class="container py-lg-5">
+            <!-- HEADING -->
+            <div class="text-center mb-5">
+                <h2 class="section-title mb-3">New Arrivals</h2>
+                <a href="shop.html" class="text-dark">- &nbsp; VIEW ALL </a>
+            </div>
+            <!-- PRODUCTS -->
+            <div class="row g-4 no-center-line">
+                <!-- PRODUCT 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card border-0 bg-transparent">
+                        <img src="imgs/product-010-300x300.jpg" class="card-img-top product-image w-100 d-block" alt="Minola Golden Earrings">
+                        <div class="card-body px-0">
+                            <small class="text-secondary">Earrings</small>
+                            <h5 class="mt-2 fw-medium"> Minola Golden Earrings</h5>
+                            <strong> $325.00</strong>
+                        </div>
+                    </div>
+                </div>
+                <!-- PRODUCT 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card border-0 bg-transparent">
+                        <img src="imgs/product-005-300x300.jpg" class="card-img-top product-image w-100 d-block"  alt="Minola Golden Necklace">
+                        <div class="card-body px-0">
+                            <small class="text-secondary">Necklaces</small>
+                            <h5 class="mt-2 fw-medium">Minola Golden Necklace</h5>
+                            <strong>$325.00</strong>
+                        </div>
+                    </div>
+                </div>
+                <!-- PRODUCT 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card border-0 bg-transparent">
+                        <img src="imgs/product-009-300x300.jpg" class="card-img-top product-image w-100 d-block" alt="Minola Silver Earrings">
+                        <div class="card-body px-0">
+                            <small class="text-secondary">Earrings</small>
+                            <h5 class="mt-2 fw-medium">Minola Silver Earrings</h5>
+                            <strong>$325.00</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- JEWELRY COLLECTION -->
+    <section class="py-5 bg-light overflow-hidden bg-transparent">
+        <div class="container-fluid px-0">
+            <div class="row g-0 align-items-center">
+                <!-- ================= CONTENT ================= -->
+                <div class="col-12 col-lg-6 position-relative z-2">
+                    <div class="bg-white text-center d-flex flex-column justify-content-center align-items-center jewelry-content-box">
+                        <!-- RING IMAGE -->
+                        <img src="imgs/img-02.png" alt="Jewelry Ring" width="120"
+                            class="position-relative jewelry-content-icon mb-3">
+                        <!-- TITLE -->
+                        <h2 class="section-title mb-3 jewelry-content-title">
+                            Exquisite Jewelry for
+                            <br>
+                            Everyone
+                        </h2>
+                        <!-- DIVIDER -->
+                        <hr class="w-25 mx-auto jewelry-content-divider">
+                        <!-- DESCRIPTION -->
+                        <p class="fst-italic fs-4 mb-4 jewelry-content-text">Discover our awesome rings collection</p>
+                        <!-- BUTTON -->
+                        <a href="shop.html" class="btn btn-outline-dark rounded-0 px-4 py-3">- &nbsp; DISCOVER THE
+                            COLLECTION</a>
+                    </div>
+                </div>
+                <!-- ================= IMAGE ================= -->
+                <div class="col-12 col-lg-6">
+                    <img src="imgs/bg-01.jpg" alt="Rings Collection"
+                        class="img-fluid w-100 d-block object-fit-cover collection-image">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- TESTIMONIAL -->
+    <section class="testimonial-section bg-transparent">
+        <div class="container py-lg-5 bg-transparent">
+            <div class="row justify-content-center text-center">
+                <div class="col-12 col-lg-9 testimonial-content position-relative">
+                    <h6 class="testimonial-title fw-semibold">TESTIMONIALS</h6>
+                    <p class="testimonial-text fst-italic  mx-auto lh-base">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua veniam...
+                    </p>
+                    <hr class="w-25 mx-auto mt-5">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  THREE COLLECTION CARDS -->
+    <section class="py-5 bg-transparent">
+        <div class="container-fluid">
+            <div class="row g-3">
+                <!-- COLLECTION 1 -->
+                <div class="col-12 col-md-4">
+                    <div class="collection-card position-relative overflow-hidden bg-black">
+                        <img src="imgs/bg-11.jpg" class="img-fluid w-100   h-100 object-fit-cover collection-card-image"
+                            alt="Lammar Collection">
+                        <div
+                            class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25 collection-dark-overlay ">
+                        </div>
+                        <div
+                            class="collection-card-content position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center text-center text-white p-4 z-2">
+                            <h2 class="collection-card-title">Lammar Collection</h2>
+                            <p class="collection-card-description fst-italic">The perfect match for any outfit</p>
+                            <small class="collection-card-price">Starting at $350.00</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- COLLECTION 2 -->
+                <div class="col-12 col-md-4">
+                    <div class="collection-card position-relative overflow-hidden bg-black">
+                        <img src="imgs/bg-10.jpg" class="img-fluid w-100 h-100 object-fit-cover collection-card-image"
+                            alt="Fermina Collection">
+                        <div
+                            class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25 collection-dark-overlay">
+                        </div>
+                        <div
+                            class="collection-card-content position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center text-center text-white p-4 z-2">
+                            <h2 class="collection-card-title">Fermina Collection</h2>
+                            <p class="collection-card-description fst-italic">The jewelry set for the modern women</p>
+                            <small class="collection-card-price">Starting at $425.00</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- COLLECTION 3 -->
+                <div class="col-12 col-md-4">
+                    <div class="collection-card position-relative overflow-hidden bg-black">
+                        <img src="imgs/bg-09.jpg" class="img-fluid w-100  h-100 object-fit-cover collection-card-image"
+                            alt="Tolentino Collection">
+                        <div
+                            class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25 collection-dark-overlay">
+                        </div>
+                        <div
+                            class="collection-card-content position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center text-center text-white p-4 z-2">
+                            <h2 class="collection-card-title">Tolentino Collection</h2>
+                            <p class="collection-card-description fst-italic"> Truly the must-have ring collection</p>
+                            <small class="collection-card-price"> Starting at $275.50</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FEATURED PRODUCTS -->
+    <section class="featured-products-section py-5 bg-transparent">
+        <div class="container py-lg-5 no-center-line bg-transparent">
+            <!-- HEADING -->
+            <div class="text-center mb-5">
+                <h2 class="section-title mb-3">Featured Products</h2>
+                <a href="shop.html" class="featured-view-all">- &nbsp; VIEW ALL</a>
+            </div>
+            <!-- PRODUCTS -->
+            <div class="row g-4 justify-content-center">
+                <!-- PRODUCT 1 -->
+                <div class="col-12 col-md-6">
+                    <div class="featured-product-card h-100">
+                        <div class="featured-product-image-box w-100 overflow-hidden">
+                            <img src="imgs/product-14-300x300.jpg"
+                                class="featured-product-image w-100 h-100 object-fit-cover d-block"
+                                alt="Sone Golden Earrings">
+                        </div>
+                        <div class="featured-product-info bg-transparent">
+                            <small class="featured-product-category">Earrings</small>
+                            <h5 class="featured-product-name fw-medium">Sone Golden Earrings</h5>
+                            <strong class="featured-product-price">$325.00</strong>
+                        </div>
+                    </div>
+                </div>
+                <!-- PRODUCT 2 -->
+                <div class="col-12 col-md-6">
+                    <div class="featured-product-card h-100">
+                        <div class="featured-product-image-box w-100 overflow-hidden">
+                            <img src="imgs/product-13-300x300.jpg"
+                                class="featured-product-image w-100 h-100 object-fit-cover d-block"
+                                alt="Verra Diamond Ring">
+                        </div>
+                        <div class="featured-product-info">
+                            <small class="featured-product-category">Rings</small>
+                            <h5 class="featured-product-name fw-medium">Verra Diamond Ring</h5>
+                            <strong class="featured-product-price">$325.00</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- PRECIOUS METALS -->
+        <section class="py-5 bg-transparent">
+            <div class="container py-lg-5">
+                <!-- HEADING -->
+                <div class="text-center mb-5">
+                    <h2 class="section-title mb-3">
+                        Precious Metals
+                    </h2>
+                    <hr class="w-25 mx-auto">
+                </div>
+                <!-- METALS -->
+                <div class="row g-4">
+                    <!-- GOLD -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="text-center">
+                            <img src="imgs/bg-005.jpg" class="img-fluid  w-100 d-block metal-image"
+                                alt="14k Solid Gold">
+                            <h3 class="fst-italic mt-4">14k Solid Gold</h3>
+                            <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut elit
+                                tellus. </p>
+                        </div>
+                    </div>
+                    <!-- SILVER -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="text-center">
+                            <img src="imgs/bg-006.jpg" class="img-fluid  w-100 d-block metal-image"
+                                alt="Sterling Silver">
+                            <h3 class="fst-italic mt-4">
+                                Sterling Silver
+                            </h3>
+                            <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut elit
+                                tellus. </p>
+                        </div>
+                    </div>
+                    <!-- VERMEIL -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="text-center">
+                            <img src="imgs/bg-007.jpg" class="img-fluid  w-100 d-block metal-image" alt="Gold Vermeil">
+                            <h3 class="fst-italic mt-4">Gold Vermeil</h3>
+                            <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut elit
+                                tellus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BRACELET COLLECTION  -->
+        <section class="bracelet-section py-5 overflow-hidden bg-transparent">
+            <div class="container-fluid px-0">
+                <div class="row g-0 align-items-center bracelet-row">
+                    <!-- IMAGE -->
+                    <div class="col-12 col-lg-6 bracelet-image-col p-0">
+                        <img src="imgs/img-01.jpg" alt="Bracelet Collection"
+                            class="bracelet-image img-fluid w-100 d-block">
+                    </div>
+                    <!-- CONTENT -->
+                    <div class="col-12 col-lg-6 bracelet-content-col p-0">
+                        <div
+                            class="bracelet-content-box d-flex flex-column justify-content-center align-items-center text-center bg-white w-100">
+                            <h2 class="section-title">
+                                High-Quality,
+                                <br>
+                                Handcrafted Jewelry
+                            </h2>
+                            <hr class="w-25 mx-auto">
+                            <p class="fst-italic bracelet-subtitle">Discover our bracelets collection</p>
+                            <img src="imgs/img-003.png" alt="Bracelets" class="bracelet-icon">
+                            <button type="button" class="btn btn-outline-dark rounded-0 bracelet-btn">- &nbsp;
+                                EXPLORE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- DISCOUNT -->
+        <section class="py-5 bg-transparent">
+            <div class="container py-lg-5">
+                <div class="text-center">
+                    <!-- SALE ICON -->
+                    <img src="imgs/sale-icon.png" alt="Sale" class="img-fluid mb-4 discount-icon">
+                    <!-- TITLE -->
+                    <h2 class="discount-title"> 25% Discount on Making Charges</h2>
+                    <!-- TEXT -->
+                    <p class="lead fst-italic text-secondary mx-auto discount-text">Lorem ipsum dolor sit amet,
+                        consectetur
+                        adipisicing elit, sed do.</p>
+                    <!-- BUTTON -->
+                    <button type="button" class="btn btn-outline-dark rounded-0 px-4 py-3">- &nbsp; VISIT OUR
+                        STORES</button>
+                </div>
+            </div>
+            <hr>
+            <!-- footer -->
+            <footer class="border-to bg-transparent ">
+                <div class="container py-5">
+                    <!-- LOGO -->
+                    <div class="text-center mb-5">
+                        <img src="imgs/logo-retina.png" alt="Jewellery Store Logo" width="145">
+                    </div>
+                    <!-- FOOTER LINKS -->
+                    <div class="row justify-content-center text-center g-3">
+                        <div class="col-6 col-md-auto">
+                            <a href="#" class="text-secondary text-decoration-none">FAQ</a>
+                        </div>
+                        <div class="col-6 col-md-auto">
+                            <a href="#" class="text-secondary text-decoration-none">Virtual Shopping</a>
+                        </div>
+                        <div class="col-6 col-md-auto">
+                            <a href="#" class="text-secondary text-decoration-none">Shipping & Returns</a>
+                        </div>
+                        <div class="col-6 col-md-auto">
+                            <a href="#" class="text-secondary text-decoration-none">Create Your Jewelry</a>
+                        </div>
+                        <div class="col-6 col-md-auto">
+                            <a href="#" class="text-secondary text-decoration-none">
+                                Ring Sizer
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-auto">
+                            <a href="#" class="text-secondary text-decoration-none"> Stores </a>
+                        </div>
+                    </div>
+                    <!-- SOCIAL ICONS -->
+                    <div class="d-flex justify-content-center gap-5 my-5">
+                        <a href="#" class="text-secondary fs-4">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="text-secondary fs-4">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="text-secondary fs-4">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="text-secondary fs-4">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                    <!-- COPYRIGHT -->
+                    <div class="text-center border-top pt-4 text-secondary">
+                        Copyright © 2026 Jewellery Store
+                    </div>
+                </div>
+            </footer>
+            <!-- SHOPPING CART OFFCANVAS -->
+            <div class="offcanvas offcanvas-end shopping-cart-offcanvas" tabindex="-1" id="shoppingCartOffcanvas"
+                aria-labelledby="shoppingCartOffcanvasLabel">
+                <!-- HEADER -->
+                <div class="offcanvas-header border-bottom">
+                    <h5 class="offcanvas-title" id="shoppingCartOffcanvasLabel">Shopping Cart </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <!-- BODY -->
+                <div class="offcanvas-body d-flex flex-column p-0">
+                    <!-- CART ITEMS -->
+                    <div id="shoppingCartItems" class="cart-items flex-grow-1 overflow-auto p-3"></div>
+                    <!-- EMPTY CART -->
+                    <div id="shoppingCartEmpty" class="text-center py-5 px-3 d-none">
+                        <i class="bi bi-bag-x display-5 text-secondary"></i>
+                        <h6 class="mt-3">Your cart is empty</h6>
+                        <p class="text-secondary small mb-0"> Add some beautiful jewellery to your cart.</p>
+                    </div>
+                    <!-- CART FOOTER -->
+                    <div id="shoppingCartFooter" class="cart-footer border-top p-4 bg-white flex-shrink-0">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span>Total</span>
+                            <strong id="popupCartTotal"> $0.00</strong>
+                        </div>
+                        <button type="button" class="btn btn-dark w-100 py-3 mb-2" id="viewCartBtn"> VIEW CART</button>
+                        <button type="button" class="btn btn-outline-dark  w-100 py-3" id="popupCheckoutBtn"> CHECKOUT
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- BACK TO TOP -->
+            <button id="backToTop" class="btn btn-dark position-fixed bottom-0 end-0 m-4 rounded-0">
+                <i class="bi bi-chevron-up"></i>
+            </button>
+            <!-- BOOTSTRAP JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- HOME JS, login js , cart js -->
+            <script src="homejs.js"></script>
+            <script src="loginjs.js"></script>
+            <script src="cartjs.js"></script>
+</body>
+</html>
